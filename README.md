@@ -533,3 +533,29 @@ codigos da aula de fundamentos de programação
        }
    printf("A soma eh: %0.2f", valorembaixo);*/
 
+   
+float Expoente(float x, int y)
+{
+    float exponenciacao = 1;
+    for(int i = 1; i <= y; i++)
+    {
+        exponenciacao *= x;
+
+    }
+    return exponenciacao;
+
+}
+int main()
+{
+
+    int y;
+    float x, result;
+    printf("Enter number: ");
+    scanf("%f", &x);
+    printf("Enter number: ");
+    scanf("%d", &y);
+    result = Expoente(x,y);
+    printf("%f", result);
+
+    return 0;
+ }
