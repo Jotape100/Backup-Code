@@ -590,3 +590,42 @@ int SomaDobro (int *a, int *b, int soma)
     soma = a2 + b2;
     return soma;
 }
+#include <stdio.h>
+#include <math.h>
+//Escreva um programa em C que lê 5 valores para a
+// um de cada vez, e conta quantos destes valores são negativos, escrevendo esta informação na tela
+
+int Somar(int *a, int *b, int soma);
+
+int main()
+{
+    int a, b, soma;
+
+    printf("Digite o primeiro numero: ");
+    scanf("%d", &a);
+    printf("Digite o segundo numero: ");
+    scanf("%d", &b);
+
+    printf("numeros antes da funcao: %d e %d\n", a,b);
+
+    Somar(&a, &b, soma);
+
+    printf("numeros depois da funcao: %d e %d\n", a,b);
+
+
+
+    return 0;
+}
+int Somar(int *a, int *b, int soma) {
+
+    soma = *a + *b;
+    *a = soma;
+}
+
+
+
+
+
+
+
+
