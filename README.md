@@ -559,3 +559,34 @@ int main()
 
     return 0;
  }
+ int SomaDobro (int *a, int *b, int soma);
+
+int main()
+{
+    int a, b, soma;
+    int somaDobro;
+
+    printf("Digite um numero: ");
+    scanf("%d", &a);
+    printf("Digite um numero: ");
+    scanf("%d", &b);
+    printf("antes da funcao: %d e %d\n", a, b);
+
+    somaDobro = SomaDobro (&a, &b,soma);
+
+    printf("Depois da funcao: %d e %d\n", a, b);
+    printf("Soma do dobro: %d", somaDobro);
+
+    return 0;
+}
+int SomaDobro (int *a, int *b, int soma)
+{
+    int a2 = (2 * *a);
+    int b2 = (2 * *b);
+
+    *a = a2;
+    *b = b2;
+
+    soma = a2 + b2;
+    return soma;
+}
