@@ -621,6 +621,55 @@ int Somar(int *a, int *b, int soma) {
     soma = *a + *b;
     *a = soma;
 }
+#include <stdio.h>
+
+#include <stdio.h>
+
+
+
+int main()
+{   int tam = 5;
+    int posicoes[tam];
+    int somar = 0, qtd = 0, maior, menor;
+    float media;
+
+    maior = posicoes[0];
+    menor = posicoes[0];
+
+    for (int i = 1; i < tam; i++) {
+
+        if (posicoes[i] > maior) {
+            maior = posicoes[i];
+        }
+        if (posicoes[i] < menor) {
+            menor = posicoes[i];
+        }
+    }
+   for (int i = 0; i < tam; i++) {
+        printf("Digite um valor para posicao %d : ", i);
+        scanf("%d", &posicoes[i]);
+        //soma dos vetores
+       somar += posicoes[i];
+        // media
+       media = (somar / tam);
+
+       if (posicoes[i] >  5) {
+           qtd++;
+       }
+
+    }
+    
+    printf("Posicao : %d \n", posicoes[tam]);
+    printf("Somar : %d \n", somar);
+    printf("Media : %.2f \n", media);
+    printf("Posicoes maiores que 5: %d\n", qtd);
+
+
+
+
+    return 0;
+}
+
 
 
 
