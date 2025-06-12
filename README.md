@@ -669,6 +669,57 @@ int main()
 
     return 0;
 }
+#include <stdio.h>
+#include <string.h>
+
+/* Elabore um programa no qual o usuário informe o
+nome de um arquivo texto e uma palavra, e o
+programa informe o número de vezes que aquela palavra aparece dentro do arquivo.
+ Considere que o arquivo texto contenha uma palavra
+por linha
+*/
+
+int main()
+{
+    FILE *Arquivo;
+    char palavra[30];
+    char palavralida[30];
+    char nomedoArquivo[30];
+    int count = 0;
+
+    //Nome do arquivo
+    printf("Nome do Arquivo : ");
+    scanf("%s", &nomedoArquivo);
+
+
+
+    Arquivo = fopen(nomedoArquivo, "r");
+    if (Arquivo == NULL)
+    {
+        return 1;
+    }
+    //Ler a palavra desejada
+    printf("Digite uma palavra qualquer: ");
+    scanf("%s", palavra);
+
+    while (!feof(Arquivo))
+    {
+        fscanf(Arquivo, "%s", palavralida);
+        if (strcmp(palavra, palavralida) == 0) {
+            count++;
+        }
+    }
+    fclose(Arquivo);
+
+    printf("Total de palavras: %d\n", count);
+    
+    fclose(Arquivo);
+    printf("Numero da palavra %s repetida: %d\n",  palavra, count);
+
+
+
+    return 0;
+}
 
 
 
