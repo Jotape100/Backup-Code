@@ -1,6 +1,48 @@
 # Backup-Code
 codigos da aula de fundamentos de programação
-/*
+/*#include <stdio.h>
+#include <string.h>
+#include <math.h>
+
+int main()
+{
+    float vet[10];
+    int aux;
+    
+    printf("Digite os numeros do vetor ");
+    for (int i = 0; i < 10; i++)
+    {
+        scanf("%f", &vet[i]);
+        
+    }
+    for(int j = 1; j <= 10; j++)
+    {
+        for(int i = 0; i < 10 - 1 ; i++)
+            {
+                if(vet[i] > vet[i + 1])
+                {
+                    aux = vet[i+1];
+                    vet[i+1] = vet[i];
+                    vet[i] = aux;
+                }
+            }
+    }
+    
+
+    printf("O vetor ficou assim ");
+    for(int i = 0; i < 10; i++)
+    {
+        printf("%0.2f\n", vet[i]);
+    }
+     
+   
+   
+    
+   
+    
+   
+    return 0;
+}
      Exercício do volume:
 
         double raio;
