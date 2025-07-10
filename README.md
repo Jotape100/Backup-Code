@@ -1,5 +1,84 @@
 # Backup-Code
 codigos da aula de fundamentos de programação
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+
+typedef struct 
+{
+   char nome_produto[100];
+   int codigo;
+   float preco;
+} Produto;
+
+int carregarProdutos(Produto vetor[], char nomeArquivo[]);
+int buscarPorNome(Produto vetor[], int tam, char nomeProduto[]);
+
+
+int main()
+{
+    //Variaveis
+    int carregar,buscarnome;
+    Produto p[100];
+    char nomeArquivo[] = {"produtos.txt"};
+    char nomeproduto[40];
+    
+    //Funcao Le a quantidade de arquivos e seus dados
+    carregar = carregarProdutos(p,nomeArquivo);
+    printf("Digite o nome do produto ");
+    gets(nomeproduto);
+
+    //
+    buscarnome = buscarPorNome(p,carregar,nomeproduto);
+
+  if(buscarnome != -1)
+   {
+    printf("Produto Encontrado:\n");
+    printf("Nome: %s\n", p[buscarnome].nome_produto);
+    printf("Codigo: %d\n",p[buscarnome].codigo);
+    printf("Valor: %0.2f\n",p[buscarnome].preco);
+   }
+  else
+  {
+    printf("Produto nao encontrado");
+  }
+
+
+    return 0;
+}
+int carregarProdutos(Produto vetor[], char nomeArquivo[])
+{
+    FILE *arq = fopen(nomeArquivo,"r");
+
+    if(arq == NULL)
+    {
+        return 1;
+    }
+    int i =0;
+    while ( fscanf(arq, "%s %d %f", vetor[i].nome_produto, &vetor[i].codigo, &vetor[i].preco) == 3)
+    {
+        i++;
+        
+    }
+    fclose(arq);
+
+    return i;
+}
+
+//Retorna a posicao do vetor do item
+ int buscarPorNome(Produto vetor[], int tam, char nomeProduto[])
+ {
+    for(int i = 0; i < tam; i++)
+    {
+        //comparação dos nomes - se for 0 são iguais
+        if(strcmp(nomeProduto, vetor[i].nome_produto) == 0)
+        {
+            //retorna a posicao do vetor do produto encontrado
+            return i;
+        }
+    }
+    return -1;
+ }
 /*#include <stdio.h>
 #include <string.h>
 #include <math.h>
