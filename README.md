@@ -6,6 +6,70 @@ codigos da aula de fundamentos de programação
 
 typedef struct 
 {
+    char nome[50];
+    char autor[40];
+    int ano;
+    
+}livro;
+
+int carregaLivros(livro vet[], char nomeArquivo[]);
+int contarLivros(livro vet[], int tam, char autor[]);
+
+int main()
+{
+    int carrega, contar;
+    livro l[40];
+    char nomearquivo[] = "livros.txt";
+    char nomedoautor[50];
+
+    carrega = carregaLivros(l,nomearquivo);
+    printf("Escreva o Nome de um Autor ");
+    gets(nomedoautor);
+    contar = contarLivros(l,carrega,nomedoautor);
+
+    printf("%d", contar);
+
+
+    return 0;
+}
+
+int carregaLivros(livro vet[], char nomeArquivo[])
+{
+    FILE *arq = fopen(nomeArquivo, "r");
+
+    if(arq == NULL)
+    {
+        return 1;
+    }
+    int i;
+    for(i = 0; i<40 && fscanf(arq, "%s %s %d", vet[i].nome, vet[i].autor, &vet[i].ano) == 3;i++);
+      
+    
+    fclose(arq);
+
+    return i;
+}
+int contarLivros(livro vet[], int tam, char autor[])
+{
+    int count = 0;
+    for(int i = 0; i < tam; i++)
+    {
+        if(strcmp(autor, vet[i].autor)== 0)
+        {
+            count++;
+        }
+
+    }
+
+    return count;
+}
+
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+
+typedef struct 
+{
    char nome_produto[100];
    int codigo;
    float preco;
