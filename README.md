@@ -4,6 +4,30 @@ codigos da aula de fundamentos de programação
 #include <string.h>
 #include <math.h>
 
+int Numero, original, resto, palindromo = 0;
+
+   printf("Digite um numero para ver se eh um palindromo: ");
+   scanf("%d", &Numero);
+
+   original = Numero;
+
+   while(Numero != 0)
+   {
+    resto = Numero % 10;
+    palindromo = palindromo * 10 + resto;
+    Numero = Numero/10;
+   }
+  
+   if(original == palindromo)
+   {
+    printf("Eh um palindromo");
+   }
+   else{
+    printf("Nao eh");
+   }
+
+
+    return 0;
 typedef struct 
 {
     char nome[50];
