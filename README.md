@@ -1,4 +1,74 @@
 # Backup-Code
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Aluno
+{
+    char nome[500];
+    char matricula[20];
+    char curso[3];
+
+};
+int verifica_curso(struct Aluno* a)
+{
+    if((*a).curso[0] == 'S' && (*a).curso[1] == 'I' && (*a).curso[2] == 'N'){
+        return 1;
+    }
+    return 0;
+};
+
+
+int* GeraVetor(int valorini, int valorfim)
+{
+int tamanho = valorfim - valorini + 1;
+int* x = (int*) malloc(sizeof(int) * tamanho);
+
+//malloc retorna um Void*
+
+for(int i = 0; i < tamanho; i++)
+{
+    x[i] = valorini + i;
+}
+return x;
+}
+int main(int argc, char * argv[])
+{
+    int* Z = GeraVetor(0,10);
+
+    int *X = (int*)malloc(sizeof(int) * 10000000);
+    int *W = (int*)malloc(sizeof(int) * 10000000);
+
+    for(int i = 0; i < 10000; i++)
+    {
+        X[i]= i;
+        W[i] = i;
+    }
+    int* XX = realloc(X, 20000 * sizeof(int));
+    if(XX!= NULL)
+    {
+        X = XX;
+    }
+  
+     for(int i = 0; i < 20000; i++){
+        X[i]= i;
+        
+    }
+    printf("%d e %d\n", Z[2], Z[9]);
+
+    struct Aluno joaopaulo;
+    joaopaulo.curso[0] = 'S';
+    joaopaulo.curso[1] = 'I';
+    joaopaulo.curso[2] = 'N';
+
+    if(verifica_curso(&joaopaulo) == 1)
+    {
+        printf("O aluno é de Sin");
+    }
+
+    free(Z);
+    free(X);
+    return 0;
+}
 codigos da aula de fundamentos de programação
 #include <stdio.h>
 #include <string.h>
