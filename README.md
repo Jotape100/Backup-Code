@@ -2,6 +2,72 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+void InverterString(char *Frase)
+{
+    int l = 0, r = strlen(Frase) - 1;
+    while (l < r)
+    {
+        char temp = Frase[l];
+        Frase[l] = Frase[r];
+        Frase[r] = temp;
+        l++;
+        r--;
+    }
+}
+
+void MetadedaString(char *Frase)
+{
+    int len = strlen(Frase);
+    int start = len / 2; 
+
+    for (int i = start; i < len; i++) {
+        Frase[i] = Frase[i] - 1;  
+    }
+}
+
+int main() 
+{
+    int N;
+    char M[1001];
+
+    scanf("%d", &N);
+    getchar();
+
+    for (int i = 0; i < N; i++)
+    {
+        fgets(M,sizeof(M),stdin);
+
+        M[strcspn(M,"\n")] = '\0';
+
+       
+        for (int j = 0; M[j] != '\0'; j++)
+        {
+            if (M[j] >= 'a' && M[j] <= 'z')
+            {
+                M[j] += 3;
+            }
+            else if (M[j] >= 'A' && M[j] <= 'Z')
+            {
+                M[j] += 3;
+            }
+        }
+
+       
+        InverterString(M);
+
+        
+        MetadedaString(M);
+        
+        printf("%s\n", M);
+    }
+
+    return 0;
+}
+
 struct Aluno
 {
     char nome[500];
