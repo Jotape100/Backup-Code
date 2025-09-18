@@ -1,1 +1,44 @@
+#include <bits/stdc++.h>
 
+using namespace std;
+
+int main()
+{
+    int N;
+    int M;
+    
+
+    int count;
+    scanf("%d", &N);
+
+    
+
+    for(int i = 0; i < N; i++)
+    {
+        scanf("%d", &M);
+
+        vector<int> alunos(M);
+        vector<int> alunos_ordenados(M);
+        count = 0;
+        for(int j = 0; j < M; j++)
+        {
+            scanf("%d", &alunos[j]);
+            
+            alunos_ordenados[j] = alunos[j];
+
+        }
+        sort(alunos_ordenados.rbegin(), alunos_ordenados.rend());
+
+        for(int k = 0; k < M;k++)
+        {
+            if(alunos_ordenados[k] == alunos[k])
+        {
+            count++;
+
+        }
+        }
+        printf("%d\n", count);
+    }
+
+    
+}
